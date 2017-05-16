@@ -1,0 +1,152 @@
+$logo-width: 190px;
+$main-menu-heihgt: 71px;
+$main-menu-heihgt-small: 50px;
+
+header {
+}
+
+.m-header {
+	//letter-spacing: .1em;
+	position: relative;
+	text-align: center;
+	letter-spacing: .05em;
+	&__top-menu {
+		height: 37px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
+		align-items: center;
+
+		@include mobile-landscape {
+			height: 30px;
+		}
+
+		&__item {
+			order: 0;
+			flex: 0 1 auto;
+			align-self: auto;
+			margin: 0 15px;
+			cursor: pointer;
+			&:hover {
+				color: $text-red-color;
+			}
+
+			@include tablet-portrait {
+				font-size: 14px;
+				margin: 0 10px;
+			}
+			@include mobile-landscape {
+				 font-size: 10px;
+			}
+		}
+	}
+	&__account-menu {
+		height: 91px;
+		position: relative;
+		color: $text-white-color;
+		margin-bottom: 13px;
+		@include tablet-landscape {
+				//height: 50px;
+			margin-bottom: 8px;
+			height: auto;
+			}
+
+
+		&__box {
+			background-color: #f6f6f6;
+			border: 1px solid #f6f6f6;
+			margin-left: $logo-width;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-end;
+			align-items: baseline;
+
+			@include tablet-landscape {
+				height: 50px;
+			}
+		}
+		&__container {
+			position: relative;
+			padding: 0 1.6em;
+			order: 0;
+			flex: 0 1 auto;
+			align-self: stretch;
+			flex-shrink: 0;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			margin-left: 5px;
+			background-color: $color-blue;
+			transition: .3s;
+			transition-delay: 0s, .3s;
+
+			@include tablet-landscape {
+				padding: 0 .5em;
+				font-size: 14px;
+			}
+
+			&:nth-child(2),
+			&:nth-child(4) {
+				background-color: $text-red-color;
+				//&:hover {
+				//	color: $text-red-color;
+				//}
+			}
+
+			&:hover {
+				//background-color: $color-white;
+				//color: $color-blue;
+				cursor: pointer;
+			}
+		}
+		&__item {
+			.sprite {
+				float: right;
+				margin-top: -7px;
+				margin-left: 10px;
+			}
+		}
+	}
+	&__main-menu {
+		position: relative;
+		height: $main-menu-heihgt;
+		background-color: $color-blue;
+		color: $text-white-color;
+		margin-bottom: 15px;
+
+		@include tablet-landscape {
+			height: $main-menu-heihgt-small;
+		}
+	}
+}
+.b-logo {
+	width: $logo-width;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	float: left;
+	img {
+		width: 100%;
+	}
+	@include tablet-landscape {
+		width: 120px;
+	}
+	@include tablet-portrait {
+		 width: 100px;
+	}
+	@include mobile-landscape {
+		float: none;
+		width: 120px;
+		position: relative;
+		margin: auto;
+	}
+}
+nav {
+
+}

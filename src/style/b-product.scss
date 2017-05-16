@@ -1,0 +1,145 @@
+.m-category {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 60px;
+	@include small-desktop {
+		padding-bottom: 40px;
+	}
+	@include tablet-portrait {
+		padding-bottom: 30px;
+	}
+}
+.b-category {
+	position: relative;
+	margin-bottom: 1%;
+	overflow: hidden;
+
+
+
+	&__container {
+		width: 52%;
+		position: absolute;
+		z-index: 1;
+		bottom: 14px;
+		left: 0;
+		color: $color-white;
+		text-transform: uppercase;
+		max-height: 50%;
+		overflow: hidden;
+
+		transition: .5s;
+		transition-delay: 0s, .5s;
+	}
+	.b-product-price {
+		right: -120%;
+	}
+	&__img {
+		&::after,
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			background-color: $color-blue-mask;
+		}
+		&:after {
+			z-index: 2;
+			background-color: $color-yellow-mask;
+		}
+		&:hover {
+			cursor: pointer;
+
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__name {
+		color: $text-red-color;
+		@include fonts($aparaj-font);
+		font-size: 46px;
+		padding: 11px 0 4px 20px;
+		letter-spacing: .05em;
+		background-color: $color-text-mask;
+
+		@include middle-desktop {
+			font-size: 90%;
+		}
+		@include tablet-portrait {
+			font-size: 70%;
+		}
+	}
+	&__text {
+		padding: 0 0 15px 20px;
+		font-size: 14px;
+		max-height: 3em;
+		overflow: hidden;
+		background-color: $color-text-mask;
+
+		@include middle-desktop {
+			font-size: 70%;
+		}
+		@include tablet-landscape {
+			font-size: 60%;
+		}
+
+		@include tablet-portrait {
+			display: none;
+		}
+	}
+	&__red-line {
+		background-color: $color-red-mask;
+		@include fonts($aparaj-font);
+		padding: 13px 0 13px 20px;
+		margin-top: 2px;
+
+		@include middle-desktop {
+			font-size: 70%;
+		}
+		@include tablet-portrait {
+			 font-size: 60%;
+		 }
+	}
+
+	&:hover {
+		.b-category__container {
+			left: -70%;
+		}
+		.b-product-price {
+			right: 0;
+		}
+		.b-category__img {
+			&::before {
+				z-index: 3;
+				background-color: rgba(0,0,0,.59);
+			}
+		}
+	}
+}
+.m-category__container-1 {
+	width: 57.3%;
+}
+.m-category__container-2 {
+	width: 42%;
+	.b-category {
+		height: 42%;
+		&:first-child {
+			height: 55.7%;
+		}
+		&__name {
+			font-size: 26px;
+			@include middle-desktop {
+				font-size: 80%;
+			}
+			@include tablet-portrait {
+				font-size: 70%;
+			}
+		}
+	}
+}

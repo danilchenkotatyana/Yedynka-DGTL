@@ -1,0 +1,54 @@
+.m-footer {
+	border-top: 1px solid $color-grey-border;
+	&__main {
+		max-width: $max-width;
+		margin: 0 auto;
+		position: relative;
+		height: 101px;
+		color: $text-grey-color;
+	}
+	&__input-box {
+		//border: 2px solid $color-border-footer-input;
+		height: 50px;
+		width: 302px;
+		margin: auto;
+		border-radius: 25px;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			border-left:2px solid $text-white-color;
+			border-top:2px solid $text-white-color;
+			height: 5px;
+			width: 5px;
+			pointer-events: none;
+			display: block;
+			right: 22px;
+			top: 20px;
+			transform: rotate(135deg);
+		}
+	}
+	&__input {
+		height: 46px;
+		width: 100%;
+		line-height: 46px;
+		font-size: 12px;
+		text-transform: uppercase;
+		background-color: transparent;
+		color: $text-white-color;
+		padding: 0 25px;
+		letter-spacing: .1em;
+
+		&::-webkit-input-placeholder {color:$text-white-color;}
+		&::-moz-placeholder          {color:$text-white-color;}/* Firefox 19+ */
+		&:-moz-placeholder           {color:$text-white-color;}/* Firefox 18- */
+		&:-ms-input-placeholder      {color:$text-white-color;}
+	}
+	&__reserved {
+		font-size: 12px;
+		letter-spacing: .1em;
+		position: relative;
+		padding: 30px 20px;
+	}
+}

@@ -1,0 +1,310 @@
+//constants
+$text-white-color: #fff;
+$text-details-grey-color: #464646;
+$text-grey-color: #434343;
+$text-red-color: #f0626e;
+
+$color-bg-menu: rgba(255,255,255,.9);
+
+$color-blue: #05aecc;
+$color-white: #fff;
+$color-grey-border: #b9b9b9;
+$color-border-elements: #ddd;
+$color-arrow-bg: #3c3c3c;
+
+$color-blue-mask: rgba(20,34,81,.13);
+$color-dark-blue-mask: rgba(20,34,81,.87);
+$color-yellow-mask: rgba(255,204, 0,.08);
+$color-text-mask: rgba(54,42,79,.8);
+$color-red-mask: rgba(239,89,102,.88);
+
+
+$margin-product: 15px;
+$max-width: 1170px;
+$main-menu-height: 71px;
+
+//fonts
+//@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+@mixin fonts($font) {
+	font-family: ($font);
+}
+$lato-font: 'lato', sans-serif;
+$aparaj-font: 'aparaj', serif;
+
+.ellipsing {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+html {
+	font-size: 100%;
+	color: $text-grey-color;
+	background-color: $color-white;
+	@include fonts($lato-font);
+}
+body {
+	min-width: 320px;
+	margin: 0 auto;
+	padding-right: $margin-product;
+	padding-left: $margin-product;
+	max-width: calc(#{$max-width} + #{$margin-product} * 2);
+}
+input {
+	@include fonts($lato-font);
+}
+.m-content {
+}
+.b-title {
+	font-size: 58px;
+	text-align: center;
+	margin-bottom: 64px;
+}
+.b-load-link {
+	text-align: center;
+	margin: auto;
+	cursor: pointer;
+	text-transform: uppercase;
+	//color: $text-light-grey-color;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: .1em;
+	margin-bottom: 58px;
+}
+.l-center {
+	text-align: center;
+}
+.l-button {
+	background-color: $color-blue;
+	color: $text-white-color;
+	padding: 0 26px;
+	text-align: center;
+	cursor: pointer;
+	transition: .3s;
+	transition-delay: 0s, .3s;
+	&:hover {
+		box-shadow: 0 0 3px 1px $color-border-elements;
+	}
+}
+.b-heading {
+	border-bottom: 1px solid $color-grey-border;
+	margin-bottom: 27px;
+	color: $color-blue;
+	font-size: 28px;
+	position: relative;
+	@include small-desktop {
+		font-size: 24px;
+		margin-bottom: 18px;
+	}
+	@include tablet-portrait {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	h1 {
+		border-bottom: 1px solid $text-red-color;
+		display: inline-block;
+		padding-bottom: 10px;
+		padding-left: 30px;
+		margin-bottom: -1px;
+		letter-spacing: .04em;
+	}
+}
+.b-arrows {
+	position: absolute;
+	right: 0;
+	bottom: -1px;
+	&__left,
+	&__right {
+		width: 70px;
+		height: 79px;
+		background-color: $color-arrow-bg;
+		color: $color-white;
+		margin-left: 1px;
+		text-align: center;
+		float: left;
+		cursor: pointer;
+		vertical-align: middle;
+		position: relative;
+		&:hover {
+			background-color: $text-red-color;
+		}
+		&::after,
+		&::before {
+			display: block;
+			background-color: $color-white;
+			width: 20px;
+			height: 2px;
+			content: "";
+			position: absolute;
+			transform: rotate(135deg) translate(-50%);
+			top: 50%;
+			left: 25%;
+			@include small-desktop {
+				left: 20%;
+			}
+			@include tablet-portrait {
+				left: 10%;
+			}
+		}
+		&::after {
+			transform: rotate(45deg) translate(50%);
+		}
+		@include small-desktop {
+			width: 50px;
+			height: 52px;
+		}
+		@include tablet-portrait {
+			width: 40px;
+			height: 42px;
+		}
+	}
+	&__right {
+		&:hover {
+			background-color: $color-blue;
+		}
+		&::after,
+		&::before {
+			transform: rotate(-45deg) translate(-50%);
+			left: 50%;
+		}
+		&::after {
+			transform: rotate(-135deg) translate(50%);
+		}
+	}
+}
+.b-product-price {
+	color: $text-white-color;
+	background-color: $color-blue;
+	position: absolute;
+	right: 0;
+	bottom: 28px;
+	height: 55px;
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+	z-index: 4;
+
+
+	transition: .5s;
+	transition-delay: 0s, .5s;
+
+	@include tablet-portrait {
+		display: none;
+	}
+
+	&__name {
+		padding: 0 10px;
+
+		@include middle-desktop {
+			font-size: 12px;
+		}
+	}
+	&__gift {
+		background-color: #00a1be;
+		width: 50px;
+		cursor: pointer;
+	}
+	&__cart {
+		background-color: $text-red-color;
+		width: 50px;
+		cursor: pointer;
+		position: relative;
+		.b-hint {
+			background-color: $color-white;
+			border: 1px solid $text-red-color;
+			border-radius: 5px;
+			position: absolute;
+			bottom: 9px;
+			left: -50%;
+			color: #000;
+			text-align: center;
+			height: 30px;
+			padding: 8px 20px;
+			text-transform: lowercase;
+			font-size: 12px;
+			z-index: -1;
+			vertical-align: middle;
+			white-space: nowrap;
+
+			opacity: 0;
+			transition: .5s;
+			transition-delay: 0s, .5s;
+
+			&:after,
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: -9px;
+				left: 40%;
+
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 9px 9px 0 9px;
+				border-color: $color-red-mask transparent transparent transparent;
+			}
+			&:before {
+				border-color: $color-white transparent transparent transparent;
+				bottom: -8px;
+				z-index: 5;
+
+			}
+		}
+		&:hover .b-hint {
+			display: block;
+			z-index: 5;
+			bottom: 110%;
+			opacity: 1;
+		}
+	}
+	&__price {
+		background-color: #000;
+		padding: 0 15px;
+		font-size: 18px;
+		@include middle-desktop {
+			font-size: 14px;
+		}
+		i {
+			font-size: 12px;
+			&:last-child {
+				position: relative;
+				top: -7px;
+			}
+		}
+	}
+
+	.sprite,
+	span {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		display: block;
+	}
+	@include middle-desktop {
+		height: 40px;
+	}
+}
+
+//text
+
+.m-text {
+	padding-bottom: 60px;
+	@include small-desktop {
+		padding-bottom: 40px;
+	}
+	@include tablet-portrait {
+		padding-bottom: 30px;
+	}
+	&__container {
+		padding: 0 30px;
+		p {
+			color: $text-details-grey-color;
+			@include small-desktop {
+				font-size: 14px;
+			}
+		}
+	}
+}

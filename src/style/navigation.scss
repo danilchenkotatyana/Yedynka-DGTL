@@ -1,0 +1,136 @@
+.b-nav {
+	display: flex;
+	align-content: flex-start;
+	justify-content: center;
+	height: 100%;
+
+	margin: 0 auto;
+	position: relative;
+	&__item {
+		cursor: pointer;
+		padding: 0 1.6em;
+		position: relative;
+		height: 100%;
+		transition: .3s;
+		transition-delay: 0s, .4s;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		@include small-desktop {
+			padding: 0 10px;
+		}
+
+		@include tablet-landscape {
+			padding: 0 5px;
+			font-size: 14px;
+		}
+		@include tablet-portrait {
+			font-size: 12px;
+		}
+		@include mobile-landscape {
+			display: none;
+		}
+
+		&:hover {
+			background-color: $color-white;
+			color: $text-red-color;
+			height: $main-menu-heihgt + 10;
+			top: -5px;
+			@include tablet-landscape {
+				height: $main-menu-heihgt-small + 6;
+				top: -3px;
+			}
+		}
+		//&::before {
+		//	display: block;
+		//	position: absolute;
+		//	content: "";
+		//	height: 2px;
+		//	width: 0;
+		//	background-color: $color-blue;
+		//	transition: width .3s ease-in-out, right .3s ease-in-out;
+		//	left: 0;
+		//	bottom: -8px;
+		//}
+		//&:hover::before {
+		//	width: 100%;
+		//	//left: 100%;
+		//}
+		&:hover {
+			.b-nav__sub-menu {
+				display: block;
+			}
+		}
+		&.l-hidden-menu {
+			display: none;
+			font-size: 16px;
+			width: 100%;
+
+			@include mobile-landscape {
+				display: flex;
+			}
+		}
+	}
+	&__text {
+		position: relative;
+	}
+
+	&__sub-menu {
+		text-align: left;
+		display: none;
+		background-color: $color-bg-menu;
+		transition-delay: .5s;
+		outline-offset: 5px;
+		box-shadow: 0 0 16px 0 rgba(0,0,0, .3);
+		position: absolute;
+		top: $main-menu-heihgt + 10;
+		left: 0;
+		width: 263px;
+		color: $text-grey-color;
+		z-index: 10;
+
+		@include tablet-landscape {
+			top: $main-menu-heihgt-small + 6;
+		}
+
+		&__item {
+			padding: 18px;
+			border-bottom: 1px solid #cacaca;
+			&:after {
+				display: block;
+				clear: both;
+				height: 0;
+				width: 100%;
+				content: "";
+			}
+			&:last-child {
+				border: none;
+			}
+			&:hover {
+				background-color: $color-blue-mask;
+			}
+		}
+
+		&__img {
+			float: left;
+			width: 77px;
+			margin-right: 8px;
+		}
+		&__title {
+			color: $text-red-color;
+			padding-bottom: 7px;
+		}
+		&__text {
+			font-size: 14px;
+			height: 2em;
+			overflow: hidden;
+			margin-bottom: 3px;
+		}
+		&__button {
+			height: 23px;
+			line-height: 23px;
+		}
+	}
+}
